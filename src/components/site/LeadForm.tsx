@@ -94,26 +94,26 @@ export const LeadForm = ({ origem }: Props) => {
   };
 
   return (
-    <form onSubmit={onSubmit} className="rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-card grid gap-4">
+    <form onSubmit={onSubmit} className="grid gap-4 rounded-2xl border border-border/80 bg-card p-5 shadow-elevated ring-1 ring-white/70 sm:p-7">
       <div className="grid gap-1.5">
         <Label htmlFor="nome">Nome *</Label>
-        <Input id="nome" value={form.nome} onChange={(e) => update("nome", e.target.value)} maxLength={120} />
+        <Input id="nome" className="h-11 rounded-xl bg-background" value={form.nome} onChange={(e) => update("nome", e.target.value)} maxLength={120} />
         {errors.nome && <p className="text-xs text-destructive">{errors.nome}</p>}
       </div>
       <div className="grid gap-1.5">
         <Label htmlFor="empresa">Empresa *</Label>
-        <Input id="empresa" value={form.empresa} onChange={(e) => update("empresa", e.target.value)} maxLength={120} />
+        <Input id="empresa" className="h-11 rounded-xl bg-background" value={form.empresa} onChange={(e) => update("empresa", e.target.value)} maxLength={120} />
         {errors.empresa && <p className="text-xs text-destructive">{errors.empresa}</p>}
       </div>
       <div className="grid gap-1.5 sm:grid-cols-2 sm:gap-4">
         <div className="grid gap-1.5">
           <Label htmlFor="whatsapp">WhatsApp *</Label>
-          <Input id="whatsapp" inputMode="tel" placeholder="(11) 99999-9999" value={form.whatsapp} onChange={(e) => update("whatsapp", e.target.value)} />
+          <Input id="whatsapp" className="h-11 rounded-xl bg-background" inputMode="tel" placeholder="(11) 99999-9999" value={form.whatsapp} onChange={(e) => update("whatsapp", e.target.value)} />
           {errors.whatsapp && <p className="text-xs text-destructive">{errors.whatsapp}</p>}
         </div>
         <div className="grid gap-1.5">
           <Label htmlFor="data_evento">Data do evento *</Label>
-          <Input id="data_evento" type="date" value={form.data_evento} onChange={(e) => update("data_evento", e.target.value)} />
+          <Input id="data_evento" className="h-11 rounded-xl bg-background" type="date" value={form.data_evento} onChange={(e) => update("data_evento", e.target.value)} />
           {errors.data_evento && <p className="text-xs text-destructive">{errors.data_evento}</p>}
         </div>
       </div>
@@ -121,7 +121,7 @@ export const LeadForm = ({ origem }: Props) => {
         <div className="grid gap-1.5">
           <Label>Tipo de evento *</Label>
           <Select value={form.tipo_evento} onValueChange={(v) => update("tipo_evento", v)}>
-            <SelectTrigger><SelectValue placeholder="Selecione" /></SelectTrigger>
+            <SelectTrigger className="h-11 rounded-xl bg-background"><SelectValue placeholder="Selecione" /></SelectTrigger>
             <SelectContent>
               {TIPO_OPTIONS.map((o) => <SelectItem key={o} value={o}>{o}</SelectItem>)}
             </SelectContent>
@@ -130,14 +130,14 @@ export const LeadForm = ({ origem }: Props) => {
         </div>
         <div className="grid gap-1.5">
           <Label htmlFor="quantidade_pessoas">Quantidade de pessoas *</Label>
-          <Input id="quantidade_pessoas" type="number" min={1} value={form.quantidade_pessoas} onChange={(e) => update("quantidade_pessoas", e.target.value)} />
+          <Input id="quantidade_pessoas" className="h-11 rounded-xl bg-background" type="number" min={1} value={form.quantidade_pessoas} onChange={(e) => update("quantidade_pessoas", e.target.value)} />
           {errors.quantidade_pessoas && <p className="text-xs text-destructive">{errors.quantidade_pessoas}</p>}
         </div>
       </div>
       <div className="grid gap-1.5">
         <Label>Unidade de interesse *</Label>
         <Select value={form.unidade_interesse} onValueChange={(v) => update("unidade_interesse", v)}>
-          <SelectTrigger><SelectValue placeholder="Selecione" /></SelectTrigger>
+          <SelectTrigger className="h-11 rounded-xl bg-background"><SelectValue placeholder="Selecione" /></SelectTrigger>
           <SelectContent>
             {UNIDADE_OPTIONS.map((o) => <SelectItem key={o} value={o}>{o}</SelectItem>)}
           </SelectContent>
@@ -146,9 +146,9 @@ export const LeadForm = ({ origem }: Props) => {
       </div>
       <div className="grid gap-1.5">
         <Label htmlFor="observacao">Observação (opcional)</Label>
-        <Textarea id="observacao" rows={3} maxLength={1000} value={form.observacao} onChange={(e) => update("observacao", e.target.value)} />
+        <Textarea id="observacao" className="min-h-[96px] rounded-xl bg-background" rows={3} maxLength={1000} value={form.observacao} onChange={(e) => update("observacao", e.target.value)} />
       </div>
-      <Button type="submit" size="lg" disabled={loading} className="w-full text-base h-12">
+      <Button type="submit" size="lg" disabled={loading} className="h-12 w-full rounded-full text-base shadow-card">
         {loading ? "Enviando..." : "Solicitar orçamento"}
       </Button>
       <p className="text-center text-xs text-muted-foreground">Orçamento personalizado. Sem compromisso.</p>

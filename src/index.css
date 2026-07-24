@@ -8,42 +8,43 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 210 20% 99%;
-    --foreground: 215 30% 14%;
+    --background: 42 20% 98%;
+    --foreground: 218 34% 13%;
 
     --card: 0 0% 100%;
-    --card-foreground: 215 30% 14%;
+    --card-foreground: 218 34% 13%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 30% 14%;
+    --popover-foreground: 218 34% 13%;
 
-    --primary: 215 60% 20%;
+    --primary: 219 48% 18%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 25% 95%;
-    --secondary-foreground: 215 30% 14%;
+    --secondary: 214 27% 95%;
+    --secondary-foreground: 218 34% 13%;
 
-    --muted: 210 20% 96%;
-    --muted-foreground: 215 15% 42%;
+    --muted: 210 22% 96%;
+    --muted-foreground: 217 13% 41%;
 
-    --accent: 38 92% 50%;
-    --accent-foreground: 215 30% 14%;
+    --accent: 34 82% 52%;
+    --accent-foreground: 218 34% 13%;
 
-    --whatsapp: 142 70% 40%;
+    --whatsapp: 150 62% 34%;
     --whatsapp-foreground: 0 0% 100%;
 
     --destructive: 0 75% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 25% 90%;
-    --input: 214 25% 90%;
-    --ring: 215 60% 20%;
+    --border: 214 22% 87%;
+    --input: 214 22% 87%;
+    --ring: 219 48% 18%;
 
-    --radius: 0.875rem;
+    --radius: 0.625rem;
 
-    --gradient-hero: linear-gradient(135deg, hsl(215 60% 20%) 0%, hsl(215 55% 28%) 60%, hsl(215 50% 35%) 100%);
-    --shadow-card: 0 4px 20px -8px hsl(215 30% 14% / 0.10);
-    --shadow-elevated: 0 12px 40px -12px hsl(215 30% 14% / 0.18);
+    --gradient-hero: linear-gradient(135deg, hsl(219 48% 17%) 0%, hsl(214 42% 23%) 58%, hsl(190 27% 31%) 100%);
+    --shadow-card: 0 1px 2px hsl(218 34% 13% / 0.05), 0 14px 34px -28px hsl(218 34% 13% / 0.24);
+    --shadow-elevated: 0 2px 6px hsl(218 34% 13% / 0.06), 0 26px 76px -42px hsl(218 34% 13% / 0.42);
+    --shadow-soft: 0 1px 2px hsl(218 34% 13% / 0.06), 0 18px 48px -36px hsl(218 34% 13% / 0.25);
 
     --sidebar-background: 0 0% 98%;
 
@@ -110,9 +111,12 @@ All colors MUST be HSL.
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   h1, h2, h3, h4 {
     font-family: 'Inter', system-ui, sans-serif;
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
   }
 }
 
@@ -120,4 +124,10 @@ All colors MUST be HSL.
   .bg-gradient-hero { background: var(--gradient-hero); }
   .shadow-card { box-shadow: var(--shadow-card); }
   .shadow-elevated { box-shadow: var(--shadow-elevated); }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .section-py { @apply py-14 sm:py-16 lg:py-20; }
+  .section-heading { @apply text-2xl font-semibold leading-tight text-primary sm:text-3xl lg:text-4xl; }
+  .section-kicker { @apply text-xs font-semibold uppercase tracking-[0.12em] text-accent; }
+  .surface-card { @apply rounded-xl border border-border/80 bg-card shadow-card; }
+  .section-band { @apply border-y border-border/70 bg-secondary/45; }
 }
